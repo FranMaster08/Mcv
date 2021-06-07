@@ -34,19 +34,20 @@ const insertUser = async (req, res, next) => {
 const updateUser = async (req, res, next) => {
     try {
         let id = req.params.id
-        let usuarios = [];
         let { firstName, lastName } = req.body
+        console.log(firstName, lastName );
+        let filasAfectadas =0
         if (id)
-            usuarios = await model.update({ firstName, lastName }, {
+        filasAfectadas = await model.update({ firstName, lastName }, {
                 where: {
                     id: id
                 }
             })
 
-        if (usuarios.length > 0)
+        if (filasAfectadas > 0)
             res.status(200).json({ succes: true, mensaje: `se actualizo usuario con id:${id}` })
         else
-            res.status(400).json({ succes: false, mensaje: `no se actualizo usuario con id:${id}` })
+            res.status(400).json({ succes: false, mensaje: `no se actualizo usuario con id:${id}, ${usuarios}` })
 
     } catch (error) {
         res.status(400).json(error)

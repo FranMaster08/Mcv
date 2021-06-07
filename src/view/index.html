@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Vista</title>
 </head>
 
@@ -16,31 +17,105 @@
     </header>
     <main>
         <div class="container">
-            <table class="table">
+            <h2>Crud Usuarios</h2>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Nuevo Usuario
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar Usuario</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                           
+                            <div>
+                                <label for="First">Nombres</label>
+                                <input type="text" name="First" id="First" class="form-control">
+                            </div>
+                            <div>
+                                <label for="lastName">Apellidos</label>
+                                <input type="text" name="lastName" id="lastName" class="form-control">
+                            </div>
+                             
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" onclick="Guardar(this)">Guardar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modalEditar -->
+             <!-- Modal -->
+             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+             aria-hidden="true">
+             <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <h5 class="modal-title" id="exampleModalLabel2">Agregar Usuario</h5>
+                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                        <div>
+                            <label for="IdE">Id</label>
+                            <input type="text" disabled name="IdE" id="IdE" class="form-control">
+                        </div>
+                         <div>
+                             <label for="Firsted">Nombres</label>
+                             <input type="text" name="Firsted" id="Firsted" class="form-control"> 
+                         </div>
+                         <div>
+                             <label for="lastNameed">Apellidos</label>
+                             <input type="text" name="lastNameed" id="lastNameed" class="form-control">
+                         </div>
+                          
+                     </div>
+                     <div class="modal-footer">
+                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                         <button type="button" class="btn btn-primary" onclick="Editar()">Editar</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+            <table class="table" id="UserGrid">
                 <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                  </tr>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
                 </thead>
                 <tbody>
-                 {% for item in data %}
-                    <tr> 
+                    {% for item in data %}
+                    <tr>
                         <td>{{item.id}}</td>
                         <td>{{item.firstName}}</td>
                         <td>{{item.lastName}}</td>
-                        <td><button value={{item.id}} class="btn btn-warning">Editar</button></td>
-                        <td><button value={{item.id}} class="btn btn-danger">Eliminar</button></td>
-                    </tr>                       
-                 {% endfor %}
-                  
+                        <td><button value={{item.id}} class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                            onclick="Seleccionar(this)">Editar</button>
+                        </td>
+                        <td><button onclick='Borrar(this)' value={{item.id}} class="btn btn-danger">Eliminar</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
                 </tbody>
-              </table>
+            </table>
         </div>
     </main>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script>
+<script src="../js/main.js"></script>
 
 </html>
