@@ -1,6 +1,28 @@
 {
   "dependencies": {
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
-  }
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2"
+  },
+  "name": "mcv",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FranMaster08/Mcv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FranMaster08/Mcv/issues"
+  },
+  "homepage": "https://github.com/FranMaster08/Mcv#readme",
+  "description": ""
 }
