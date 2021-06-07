@@ -9,12 +9,6 @@ _Primero debes instalar las dependecias del proyecto, esto lo lograras con esta 
 ```
 npm install
 ```
-
-_Para iniciar el servidor por favor usar_
-
-```
-npm start
-```
 _Debes crear un archivo .env para las variables de entorno_
 _Ejemplo_
 
@@ -27,14 +21,25 @@ DBPORT=3306
 PORT=3000
 ```
 
+_Para iniciar el servidor por favor usar_
+
+```
+npm start
+```
+
 
 
 
 ## Construido con 🛠️
 
-* [Express] - El framework de NodeJs
-* [Nunjucks] - Motor de plantillas
-* [dotEnv] - Manejador de Variables de entorno
+* [Express]   - El framework de NodeJs
+* [Nunjucks]  - Motor de plantillas
+* [dotEnv]    - Manejador de Variables de entorno
+* [Mysql2]    - Driver de Mysql 
+* [Sequelize] - Orm 
+* [Fetch]     - Api de JavasCript para peticiones HTTP
+* [Boostraps5]- Framework de Diseño 
+
 
 
 
