@@ -13,7 +13,7 @@ const getUsers = async (req, res, next) => {
         else
             usuarios = await model.findAll()
 
-        res.status(200).json(usuarios)
+        res.render('index.html', { data: usuarios })
     } catch (error) {
         res.status(400).json(error)
     }
@@ -24,7 +24,7 @@ const insertUser = async (req, res, next) => {
     try {
         let { firstName, lastName } = req.body
         let response = await model.create({ firstName, lastName })
-        res.status(200).json(response)
+        res.render('index.html')
     } catch (error) {
         res.status(400).json(error)
     }
@@ -63,14 +63,14 @@ const deleteUser = async (req, res, next) => {
                     id: id
                 }
             })
-      
-        if (usuarios>0)
+
+        if (usuarios > 0)
             res.status(200).json({ succes: true, mensaje: `se elimino usuario con id:${id}` })
         else
-            res.status(400).json({ succes: false, mensaje: `no se elimino usuario con id:${id}`})
+            res.status(400).json({ succes: false, mensaje: `no se elimino usuario con id:${id}` })
 
     } catch (error) {
-        res.status(400).json({mensaje:` ocurrio un error ,${JSON.stringify(error)}`})
+        res.status(400).json({ mensaje: ` ocurrio un error ,${JSON.stringify(error)}` })
     }
 }
 
